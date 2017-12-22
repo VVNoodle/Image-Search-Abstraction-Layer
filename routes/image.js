@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 const Result = require("../models/result");
 
-mongoose.connect('mongodb://localhost/imageSearch');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/imageSearch');
 
 router.get("/imagesearch/", (req, res) => {
     const query = req.query.q;
