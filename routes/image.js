@@ -14,7 +14,7 @@ router.get("/imagesearch/", (req, res) => {
         term: query,
         when: new Date()
     });
-
+    res.send(process.env.KEY);
     newResult.save()
         .then(() => {
             axios.get(`https://pixabay.com/api/?key=${process.env.KEY}&q=${query}&per_page=${offset}`)
