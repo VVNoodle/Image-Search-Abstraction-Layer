@@ -25,7 +25,10 @@ router.get("/imagesearch/", (req, res) => {
 });
 
 router.get("/latest/imagesearch/", (req, res) => {
-
+    Result.find({}, { _id: 0, when: 1, term: 1 })
+        .then((history) => {
+            res.send(history);
+        });
 });
 
 module.exports = router;
